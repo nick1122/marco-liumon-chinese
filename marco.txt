@@ -1,451 +1,188 @@
-]#############################################################################################
-# A Codificação do texto está correta?
-# Codificação:  ANSI -> UTF8 Without boom
-# Se você não está vendo a acentuação corretamente, seu arquivo está no formato incorreto.
-# Créditos tradução: Duds, Draigonz, Sayd, Temaki' e Kepler  ---          www.openkore.com.br
-#############################################################################################
-
-automacro nomapa {
-location iz_int
+﻿
+automacro np {
 base == 1
-run-once 1
-call setup
-}
+        exclusive 1
+        run-once 1
+        call {
 
-macro setup {
-do conf autoTalkCont 1
-do conf route_randomWalk 0
-do conf attackAuto 0
-do conf lockMap 0
-do conf skillsAddAuto 1
-do conf relogAfterStorage 0
-call chatisse
-}
-
-macro chatisse {
-do talknpc 100 91 c c c c c c c n
-pause 5
-do move 96 73
-pause 5
-do talknpc 198 213 c c c r0 c c c c c c c c c c n
-pause 5
-do move 125 202
-pause 5
-do talknpc 120 207 c r0 c c c c c c c c n
-pause 5
-do move 50 97
-pause 5
-do talknpc 45 94 c c r0 c r0 c c n
-pause 5
-do move 172 72
-pause 5
-do talknpc 179 75 c c r0 c c c n
-pause 5
-do move 203 166
-pause 5
-do talknpc 207 167 c c c r0 c r0 c c n
-pause 5
-do move 128 205
-pause 5
-do talknpc 120 207 c c r0 c c r0 c c c c c c c n
-pause 5
-do talknpc 122 207 c c c c c c c c c c n
-pause 5
-do is Apple Juice
-pause 5
-do talknpc 122 207 c c c r1 c c c c n
-pause 5
-do move 125 257
-pause 5
-do talknpc 100 39 c c r0 c c c n
-pause 5
-do eq Tattered Novice Ninja Suit
-pause 5
-do eq Somber Novice Hood
-pause 5
-do eq Novice Slippers
-pause 5
-do eq Novice Guard
-pause 5
-do eq Criatura Academy Hat [1]
-pause 5
-do eq Novice Main-Gauche
-pause 5
-do move 66 74
-pause 5
-do talknpc 59 83 c r1 n
-pause 5
-do conf attackAuto 2
-pause 5
-do conf route_randomWalk 1
-pause 5
-}
-
-automacro jobidez {
-class Novice
-job == 10
-run-once 1
-call virargatuno
-}
-
-macro virargatuno {
-do conf attackAuto 0
-do conf route_randomWalk 0
-do skills add 1
-do skills add 1
-do skills add 1
-do skills add 1
-do skills add 1
-do skills add 1
-do skills add 1
-do skills add 1
-do skills add 1
-do move 348 215
-pause 5
-do talknpc 343 216 c r0 n
-pause 5
-do move 78 25
-pause 5
-do move 52 136
-pause 5
-do talknpc 52 136 c c r0 c c c r0 c c c c c c c c c c c c c n
-pause 5
-do talknpc 49 134  c c c c c c c c c c c r1 c r1 c c c c n
-pause 5
-do talknpc 55 134 c r0 c c c c r4 c r3 c c r0 c c r4 c r0 c c r1 c c c c r2 c c c c c r4 c c m
-pause 5
-do talknpc 52 136 c c c c n
-pause 5
-do eq Thief Manual
-pause 5
-do talknpc 49 134 c c c c c n
-pause 5
-do talknpc 55 134 c c c c c r0 c c n
-pause 5
-do relog 30
-pause 5
-call viragat
-}
-
-
-macro viragat {
-
-$thief = @rand(1, 3)
-pause 1
-if ($thief = 1) goto loopdogat1
-if ($thief = 2) goto loopdogat2 
-if ($thief = 3) goto loopdogat3
-
-:loopdogat1
-while (class != Thief) as loop
-do relog 5
-pause 5
-do move @rand(59, 62) 145
-pause 5
-do sm 52 @rand(0, 3)
-pause 2
-do sm 52 @rand(0, 3)
-pause 2
-do sm 52 @rand(0, 3)
-do talk @npc(49 134)
-pause 5
-do talk resp 0
-pause 5
-do sm 50 0
-pause 1
-do sm 50 0
-pause 1
-do sm 50 0
-pause 1
-do sm 50 0
-pause 1
-do sm 50 0
-pause 1
-do sm 50 1
-pause 1
-do sm 50 1
-pause 1
-do sm 50 1
-pause 1
-do sm 50 1
-pause 1
-do sm 50 1
-pause 1
-do sm 50 2
-pause 1
-do sm 50 2
-pause 1
-do sm 50 2
-pause 1
-do sm 50 2
-pause 1
-do sm 50 2
-pause 1
-do sm 50 3
-pause 1
-do sm 50 3
-pause 1
-do sm 50 3
-pause 1
-do sm 50 3
-pause 1
-do sm 50 3
-pause 1
-do talk @npc(49 134)
-pause 5
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(55 134)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(52 136)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(52 136)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 5
-end loop
-goto end
-
-:loopdogat2
-while (class != Thief) as loop
-do relog 5
-pause 5
-do move @rand(59, 62) 135
-pause 5
-do sm 52 @rand(4, 7)
-pause 2
-do sm 52 @rand(4, 7)
-pause 2
-do sm 52 @rand(4, 7)
-do talk @npc(49 134)
-pause 5
-do talk resp 0
-pause 5
-do sm 50 4
-pause 1
-do sm 50 4
-pause 1
-do sm 50 4
-pause 1
-do sm 50 4
-pause 1
-do sm 50 4
-pause 1
-do sm 50 5
-pause 1
-do sm 50 5
-pause 1
-do sm 50 5
-pause 1
-do sm 50 5
-pause 1
-do sm 50 5
-pause 1
-do sm 50 6
-pause 1
-do sm 50 6
-pause 1
-do sm 50 6
-pause 1
-do sm 50 6
-pause 1
-do sm 50 6
-pause 1
-do sm 50 7
-pause 1
-do sm 50 7
-pause 1
-do sm 50 7
-pause 1
-do sm 50 7
-pause 1
-do sm 50 7
-pause 1
-do sm 50 @rand(4, 7)
-do talk @npc(49 134)
-pause 5
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(55 134)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(52 136)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(52 136)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 5
-end loop
-goto end
-
-:loopdogat3
-while (class != Thief) as loop
-do relog 5
-pause 5
-do move @rand(59, 62) 133
-pause 5
-do sm 52 @rand(8, 11)
-pause 2
-do sm 52 @rand(8, 11)
-pause 2
-do sm 52 @rand(8, 11)
-do talk @npc(49 134)
-pause 5
-do talk resp 0
-pause 5
-do sm 50 8
-pause 1
-do sm 50 8
-pause 1
-do sm 50 8
-pause 1
-do sm 50 8
-pause 1
-do sm 50 8
-pause 1
-do sm 50 9
-pause 1
-do sm 50 9
-pause 1
-do sm 50 9
-pause 1
-do sm 50 9
-pause 1
-do sm 50 9
-pause 1
-do sm 50 10
-pause 1
-do sm 50 10
-pause 1
-do sm 50 10
-pause 1
-do sm 50 10
-pause 1
-do sm 50 10
-pause 1
-do sm 50 11
-pause 1
-do sm 50 11
-pause 1
-do sm 50 11
-pause 1
-do sm 50 11
-pause 1
-do sm 50 11
-pause 1
-do talk @npc(49 134)
-pause 5
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(55 134)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(52 136)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk @npc(52 136)
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 2
-do talk resp 0
-pause 5
-end loop
-goto end
-
-:end
+               do move 96 75
+               pause 3
+               do move 130 256
+               pause 3
+               do move 101 36
+               pause 3
+               do talknpc 100 39 c c r0 c c c
+               pause 3
+               do skills add 1
+               pause 3
+               do eq @inventory (初學者忍者斗篷)
+               do eq @inventory (初學者陰險披肩)
+               do eq @inventory (初學者海灘鞋)
+               do eq @inventory (初學者蛋殼帽)
+               do eq @inventory (初學者笨拙短劍)
+               do eq @inventory (初學者鐵盾)
+               pause 3
+               do move 99 24
+               pause 3
+               do move 112 180
+               pause 3
+               do move 65 85
+               pause 3
+               do move 100 122
+               pause 3
+               do talknpc 96 125 c r0 c c c c r0 c c c r2 c c
+               pause 2
+               do talknpc 96 125 c c r1 c c c
+               pause 2
+               do talknpc 96 125 c c c c c c c
+               pause 2
+               do talknpc 96 125 c c c c c r0 c c
+               pause 2
+               do eq @inventory (棉襯衫 [1])
+               pause 2
+               do move 101 127
+               pause 2
+               do talknpc 108 139 c r1 c c r0 c c r0 c c c
+               pause 3
+               do eq @inventory (棉襯衫 [HP+100:SP+50] [1])
+               pause 3
+               do move 20 98
+     }
 
 }
 
+automacro pl {
+ class Novice
+ base < 12
+    run-once 1
+    call {
+     do move prt_fild08
+     do conf lockMap prt_fild08
+     do conf attackAuto 2
+   }
+}
 
-automacro Gatuno {
-class Thief
-job == 1
-run-once 1
-overrideAI 1
-exclusive 1
-call virougatuno
+automacro mc_1 {
+   class Novice
+   base = 12
+   run-once 1
+   call {
+       do skills add 1
+       do skills add 1
+       do skills add 1
+       do skills add 1
+       do skills add 1
+       do skills add 1
+       do skills add 1
+       do skills add 1
+       do skills add 1
+       pause 3
+       do move 169 376
+       pause 3
+       do move 124 77
+       pause 3
+       do talknpc 124 76 c c r0
+       pause 3
+       do move 14 33
+       pause 3
+       do talknpc 17 37 c r2 c r0
+       pause 3
+       do talknpc 17 37 c r1 r0
+       pause 2
+       do talknpc 17 37 c r1 r0
+       pause 2
+       do talknpc 17 37 c r1 r0
+       pause 2
+       do talknpc 17 37 c r1 r5
+       pause 2
+       do talknpc 17 37 c r1 r5
+       pause 5
+       do eq @inventory (棉襯衫 [HP+100:SP+50] [1])
+       pause 2
+       do move 31 11
+       pause 10
+       do move 145 83
+       pause 2
+       do talknpc 146 89 c r2 c r3
+       pause 2
+       do move 30 289
+       pause 2
+       do move 27 292
+       pause 2
+       do move 55 161
+       pause 2
+       do move 176 20
+       pause 1
+       do talk resp 2
+       pause 1
+       do move 90 107
+       pause 5
+       do move 89 115
+       pause 5
+       do move 48 127
+       pause 2
+       do talknpc 42 133 c r1 c r1 c
+       pause 10
+       do eq @inventory (棉襯衫 [HP+100:SP+50] [1])
+       do eq @inventory (新手專用笨拙短劍 [3])
+       pause 2
+       do talknpc 53 126 c c r0
+       pause 5
+       do move 31 11
+       pause 5
+       do move 159 37
+       pause 2
+       do move 154 260
+       pause 2
+       do talknpc 160 258 c r2 c r1
+       pause 10
+       do move 175 105
+       pause 3
+       do talknpc 181 104 c r0
+       pause 3
+       do move morocc 150 95
+       pause 60
+       #do conf lockMap pay_fild02
+       do conf skillsAddAuto 1
+       do conf skillsAddAuto_list 二刀連擊 10,殘影 10,
+      pause 2
+       #do conf storageAuto 1/do conf storageAuto_npc
+       #do reload config
+        # call virougatuno
+  
+   }
+}
+
+macro foo {
+        log hello
+}
+
+
+   automacro gatuno {
+    class Thief
+    job == 1
+    run-once 1
+    overrideAI 1
+    exclusive 1
+    call virougatuno
 }
 
 macro virougatuno {
-   pause 5
-   do eq Novice Main Gauche [3]
-   pause 5
-   do eq Criatura Academy Hat [1]
-   do conf lockMap payon
-   do conf lockMap_x 181
-   do conf lockMap_y 104
-   release salvapay
+  do talknpc 156 97 c r2 c r1
+pause 5
+do eq 新手專用笨拙短劍 [3]
+pause 5
+do eq 克里圖拉學院帽 [1]
+pause 5
+do conf lockMap payon
+do conf lockMap_x 181
+do conf lockMap_y 104
+release salvapay
 }
 
 automacro salvapay {
    location payon 178 107 184 101
+   base = 1 .. 15
    run-once 1
    disabled 1
    call salvandopay
@@ -467,7 +204,8 @@ macro salvandopay {
 }
 
 automacro vaiesporos {
-   base = 6 .. 27
+   class Thief
+   base = 16 .. 27
    run-once 1
    call esporo
 }
@@ -480,24 +218,14 @@ macro esporo {
    do conf storageAuto_npc none
    do conf sellAuto 1
    do conf sellAuto_npc payon 159 96
-   do conf buyflywing.npc payon 159 96
-   do conf buyflywing.minAmount 0
-   do conf buyflywing.maxAmount 40
-   do conf buybutterfly.npc payon 159 96
-   do conf buybutterfly.minAmount 0
-   do conf buybutterfly.maxAmount 5
-   do conf buyredpot.npc payon 159 96
-   do conf buyredpot.minAmount 0
-   do conf buyredpot.maxAmount 150
-   do conf buyconcpot.npc payon 159 96
-   do conf buyconcpot.minAmount 0
-   do conf buyconcpot.maxAmount 10
+
 }
 
 
 
 automacro vaibigfoot {
-   base = 28 .. 45
+   base = 28 .. 40
+
    run-once 1
    call bigfoot
 }
@@ -510,73 +238,66 @@ macro bigfoot {
    do conf storageAuto_npc none
    do conf sellAuto 1
    do conf sellAuto_npc payon 159 96
-   do conf buyflywing.npc payon 159 96
-   do conf buyflywing.minAmount 0
-   do conf buyflywing.maxAmount 40
-   do conf buybutterfly.npc payon 159 96
-   do conf buybutterfly.minAmount 0
-   do conf buybutterfly.maxAmount 5
-   do conf buyredpot.npc payon 159 96
-   do conf buyredpot.minAmount 0
-   do conf buyredpot.maxAmount 150
-   do conf buyconcpot.npc payon 159 96
-   do conf buyconcpot.minAmount 0
-   do conf buyconcpot.maxAmount 10
    pause 2
    do autosell
    }
 
 
 automacro vaiwolf {
-   base = 45 .. 70
-   job < 50
-   class Thief
+   base = 40 .. 80
+  # job < 40
+ #  class Thief
    run-once 1
    call wolf
    }
 
 macro wolf {
-   do conf lockMap moc_fild03
+   do conf lockMap pay_dun01
    do conf route_randomWalk 1
    do conf attackAuto 2
    do conf storageAuto none
    do conf storageAuto_npc none
    do conf sellAuto 1
    do conf sellAuto_npc payon_in01 5 49
-   do conf buyflywing.npc payon_in01 5 49
-   do conf buyflywing.minAmount 0
-   do conf buyflywing.maxAmount 40
-   do conf buybutterfly.npc payon_in01 5 49
-   do conf buybutterfly.minAmount 0
-   do conf buybutterfly.maxAmount 5
-   do conf buyredpot.npc payon_in01 5 49
-   do conf buyredpot.minAmount 0
-   do conf buyredpot.maxAmount 150
-   do conf buyconcpot.npc none
-   do conf buyconcpot.minAmount none
-   do conf buyconcpot.maxAmount none
-   do conf buyawakpot.npc payon_in01 5 49
-   do conf buyawakpot.minAmount 0
-   do conf buyawakpot.maxAmount 10
    do conf teleportAuto_minAggressivesInLock 3
-   do move payon 181 102
-   pause 5
-   do talknpc 181 104 c r0 n
+   #do move payon 181 102
+  # pause 5
+  #do talknpc 181 104 c r0 n
 }
 
-
-automacro vaihode {
-   base = 51 .. 88
-   class Rogue
+automacro buys{
+   base = 16 .. 99
+   inventory "紅色藥水" = 0
+   call buyRed
    run-once 1
-   overrideAI 1
-   exclusive 1
-   call salvamorroc
 }
+
+macro buyRed{
+   do move 5 48 payon_in01
+   pause 1
+   do talk @npc(5 49)
+   pause
+   do store
+   pause 1
+   do buy @store(紅色藥水) 150
+   pause 1
+   #do move payon
+   release all
+
+}
+
+#automacro vaihode {
+#   base = 51 .. 88
+#   class Rogue
+#   run-once 1
+#   overrideAI 1
+#   exclusive 1
+#   call salvamorroc
+#}
 
 macro salvamorroc {
    pause 3
-   do drop @inventory(Red Potion)
+#   do drop @inventory(Red Potion)
    pause 1
    do conf route_avoidWalls 1
    do conf lockMap morocc
@@ -588,46 +309,31 @@ macro salvamorroc {
    pause 2
 }
 
-automacro hodes {
-   location morocc 153 100 159 94
-   run-once 1
-   disabled 1
-   call vaihodes
-}
+#automacro hodes {
+#   location morocc 153 100 159 94
+#   run-once 1
+#   disabled 1
+#   call vaihodes
+#}
 
 
-macro vaihodes {
-   do talk @npc(156 97)
-   pause 2
-   do talk resp 0
-   pause 2
-   do conf route_randomWalk 1
-   do conf attackAuto 2
-   do conf storageAuto none
-   do conf storageAuto_npc none
-   do conf sellAuto 1
-   do conf sellAuto_npc moc_ruins 91 128
-   do conf buyflywing.npc moc_ruins 91 128
-   do conf buyflywing.minAmount 0
-   do conf buyflywing.maxAmount 40
-   do conf buybutterfly.npc moc_ruins 91 128
-   do conf buybutterfly.minAmount 0
-   do conf buybutterfly.maxAmount 5
-   do conf buyredpot.npc none
-   do conf buyredpot.minAmount none
-   do conf buyredpot.maxAmount none
-   do conf buyorangepot.npc moc_ruins 91 128
-   do conf buyorangepot.minAmount 0
-   do conf buyorangepot.maxAmount 150
-   do conf buyawakpot.npc moc_ruins 91 128
-   do conf buyawakpot.minAmount 0
-   do conf buyawakpot.maxAmount 10
-   pause 5
-   do conf lockMap moc_fild17
-   do conf lockMap_x none
-   do conf lockMap_y none
-   do conf attackEquip_rightHand Gladius [3]
-}
+#macro vaihodes {
+#   do talk @npc(156 97)
+#   pause 2
+#   do talk resp 0
+#   pause 2
+#   do conf route_randomWalk 1
+#   do conf attackAuto 2
+#   do conf storageAuto none
+#   do conf storageAuto_npc none
+#   do conf sellAuto 1
+#   do conf sellAuto_npc moc_ruins 91 128
+#   pause 5
+#   do conf lockMap moc_fild17
+#   do conf lockMap_x none
+#   do conf lockMap_y none
+#   do conf attackEquip_rightHand 長柄短劍 [3]
+#}
 
 
 automacro vaiporcelio {
@@ -709,11 +415,11 @@ automacro sucesso {
 
 
 automacro pegoucinquenta {
-   job = 50
+   job > 40
    class Thief
    run-once 1
    exclusive 1
-   inventory "Bear's Footskin" < 10
+   inventory "熊掌" < 10
    location not cmd_fild01
    location not cmd_fild02
    location not cmd_fild03
@@ -759,12 +465,12 @@ macro  pegabear {
 
 automacro pegoubear {
    class Thief
-   job == 50
+   job > 40
    run-once 1
    overrideAI 1
    exclusive 1
-   inventory "Bear's Footskin" > 9
-   inventory "Grasshopper's Leg" < 10
+   inventory "熊掌" > 9
+   inventory "蝗蟲後腿" < 10
    location not cmd_fild01
    location not cmd_fild02
    location not cmd_fild03
@@ -788,13 +494,13 @@ macro pegarocker {
 
 automacro pegourocker {
    class Thief
-   job == 50
+   job > 40
    run-once 1
    overrideAI 1
    exclusive 1
-   inventory "Bear's Footskin" > 9
-   inventory "Grasshopper's Leg" > 9
-   inventory "Yellow Herb" < 10
+   inventory "熊掌" > 9
+   inventory "蝗蟲後腿" > 9
+   inventory "黃色藥草" < 10
    location not cmd_fild01
    location not cmd_fild02
    location not cmd_fild03
@@ -818,14 +524,14 @@ macro pegayellow {
 
 automacro pegouyellow {
    class Thief
-   job == 50
+   job > 40
    run-once 1
    overrideAI 1
    exclusive 1
-   inventory "Bear's Footskin" > 9
-   inventory "Grasshopper's Leg" > 9
-   inventory "Yellow Herb" > 9
-   inventory "Shell" < 10
+   inventory "熊掌" > 9
+   inventory "蝗蟲後腿" > 9
+   inventory "黃色藥草" > 9
+   inventory "堅硬外殼" < 10
    location not cmd_fild01
    location not cmd_fild02
    location not cmd_fild03
@@ -856,14 +562,14 @@ macro pegashell {
 
 automacro pegoutudo {
    class Thief
-   job == 50
+   job > 40
    run-once 1
    overrideAI 1
    exclusive 1
-   inventory "Bear's Footskin" > 9
-   inventory "Grasshopper's Leg" > 9
-   inventory "Yellow Herb" > 9
-   inventory "Shell" > 9
+   inventory "熊掌" > 9
+   inventory "蝗蟲後腿" > 9
+   inventory "黃色藥草" > 9
+   inventory "堅硬外殼" > 9
    call 1rogue1
 }
 
@@ -886,7 +592,7 @@ automacro pegoutudo {
 #}
 
 #automacro 1rogue {
-#   job == 50
+#   job > 41
 #   class Thief
 #   location cmd_fild07 133 137 139 131
 #   run-once 1
@@ -911,12 +617,12 @@ macro 1rogue1 {
 
 
 automacro 2rogue {
-   job == 50
+   job > 40
    class Thief
    location in_rogue 365 117 371 111
    run-once 1
    disabled 1
-   call 2rogue2 
+   call 2rogue2
 }
 
 macro 2rogue2 {
@@ -927,6 +633,7 @@ macro 2rogue2 {
    release 2rogue2.2
    release 2rogue2.3
    do talk resp 0
+
    lock pegouyellow
    lock pegourocker
    lock pegoubear
@@ -936,24 +643,34 @@ macro 2rogue2 {
 
 automacro 2rogue2.1 {
    disabled 1
-   console /By what percentage is the flee rate increased when a Thief masters the Improve Dodge?/
+   class Thief
+   console /當盜賊的殘影技能練到最高時，所上升的迴避率是?/
    run-once 1
    call {
+
    pause 3
    do talk resp 0
    pause 3
+
+   pause 3
    do talk resp 0
+   pause 3
+
    pause 3
    do talk resp 2
    pause 3
+
+   pause 3
    do talk resp 3
+   pause 3
+
    pause 3
    do talk resp 1
    pause 3
    do talk resp 3
    pause 3
    do talk resp 2
-   pause 3
+      pause 3
    do talk resp 1
    pause 3
    do talk resp 0
@@ -974,30 +691,55 @@ automacro 2rogue2.1 {
 
 automacro 2rogue2.2 {
    disabled 1
-   console /1. Choose the skill necessary for learning Stalk./
+   class Thief
+   console /學習流氓的潛遁技能時，所需要的技能是?/
    run-once 1
    call {
+
    pause 3
    do talk resp 0
    pause 3
-   do talk resp 2
+
    pause 3
    do talk resp 2
+   pause 3
+
+   pause 3
+   do talk resp 2
+   pause 3
+
    pause 3
    do talk resp 3
    pause 3
+
+   pause 3
    do talk resp 3
    pause 3
-   do talk resp 2
+
    pause 3
    do talk resp 2
    pause 3
+
+   pause 3
    do talk resp 2
+   pause 3
+
+   pause 3
+   do talk resp 2
+   pause 3
+
    pause 3
    do talk resp 1
    pause 3
+
+   pause 3
    do talk resp 0
    pause 3
+
+   pause 3
+
+   pause 3
+
    do conf lockMap in_rogue
    do conf lockMap_x 367
    do conf lockMap_y 23
@@ -1012,28 +754,50 @@ automacro 2rogue2.2 {
 
 automacro 2rogue2.3 {
    disabled 1
-   console /1. Which monster drops a slotted Gladius?/
+   class Thief
+   console /有洞的長柄短劍可以從哪一隻魔物身上獲得?/
    call {
+
    pause 3
    do talk resp 3
    pause 3
+
+   pause 3
    do talk resp 0
    pause 3
+
+   pause 3
    do talk resp 1
+   pause 3
+
    pause 3
    do talk resp 3
    pause 3
+
+   pause 3
    do talk resp 0
    pause 3
+
+   pause 3
    do talk resp 1
+   pause 3
+
    pause 3
    do talk resp 3
    pause 3
    do talk resp 2
    pause 3
+
+   pause 3
    do talk resp 3
    pause 3
+
+   pause 3
    do talk resp 2
+   pause 3
+
+   pause 3
+
    pause 3
    do conf lockMap in_rogue
    do conf lockMap_x 367
@@ -1071,12 +835,38 @@ macro rogue3 {
    pause 2
    do talk @npc(376 23)
    pause 10
+
+   pause 2
+
+   pause 2
+
+   pause 2
+
+   pause 2
+
+   pause 2
    do talk @npc(376 23)
-   pause 3
+   pause 2
+
+   pause 2
+
+   pause 2
    do talk @npc(376 23)
-   pause 3
+   pause 2
+
+   pause 2
+
+   pause 2
+
+   pause 2
+
+   pause 2
+
+   pause 2
+
+   pause 2
    do talk @npc(376 23)
-   pause 3
+   pause 2
    do talk @npc(376 23)
    lock pegouyellow
    lock pegourocker
@@ -1087,7 +877,8 @@ macro rogue3 {
 
 
 automacro 3rogue3.1 {
-   console /The password is Aragham never hoarded upgrade items./
+   class Thief
+   console /阿拉甘並沒有把精鍊物品轉移到別處/
    run-once 1
    call rogue3.1
 }
@@ -1102,11 +893,12 @@ macro rogue3.1 {
    lock pegoubear
    lock pegoucinquenta
    pause 2
-   do relog 99999999999
+   do relog
 }
 
 automacro 3rogue3.11 {
-   console /intrude my territory?/
+   console /是誰想要隨便進來?/
+   class Thief
    location cmd_fild09 100 200 110 190
    timeout 60
    call 3rogue3.12
@@ -1117,6 +909,7 @@ macro 3rogue3.12 {
    lock pegouyellow
    lock pegourocker
    lock pegoubear
+
    pause 2
    do talk resp 1
    pause 2
@@ -1125,11 +918,17 @@ macro 3rogue3.12 {
    do talk resp 1
    pause 2
    do talk resp 0
+   pause 2
+
    pause 10
    do move 248 32
    pause 10
    do talk 0
    pause 10
+   pause 5
+
+   pause 1
+
    do talk resp 0
    pause 5
    do conf route_avoidWalls 0
@@ -1166,17 +965,17 @@ macro 3rogue3.12 {
    pause 1
    do move 77 195
    pause 1
-   do move 129 195 
+   do move 129 195
    pause 1
-   do move 226 195
-   pause 1
-   do move 226 222
-   pause 1
-   do move 241 222
-   pause 1
-   do move 241 313
-   pause 1
-   do move 290 312
+   #do move 226 195
+   #pause 1
+   #do move 226 222
+   #pause 1
+   #do move 241 222
+   #pause 1
+   #do move 241 313
+   #pause 1
+   #do move 290 312
    pause 1
    do move 369 320
    pause 5
@@ -1184,14 +983,17 @@ macro 3rogue3.12 {
    pause 1
    do talk @npc(363 122)
    pause 5
-   do eq Gladius [3]
+
+   pause 1
+
+   do eq 長柄短劍 [3]
    pause 3
    do relog 10
 }
 
 
 automacro 3rogue3.2 {
-   console /Antonio doesn't enjoy destroying upgrade items./
+   console /安童尼奧並不喜歡打碎精鍊物品/
    overrideAI 1
    exclusive 1
    timeout 60
@@ -1199,6 +1001,21 @@ automacro 3rogue3.2 {
 }
 
 macro rogue3.2 {
+   do conf attackAuto 0
+   do move cmd_fild06
+   pause 1
+   do move cmd_fild05
+   pause 1
+   do move cmd_fild03
+   pause 1
+   do move cmd_fild01
+   pause 1
+   do move cmd_fild02
+   pause 1
+   do move cmd_fild02 358 94
+   pause 1
+   do move cmd_fild04
+   pause
    do conf lockMap cmd_fild04
    do conf lockMap_x 304
    do conf lockMap_y 180
@@ -1207,7 +1024,7 @@ macro rogue3.2 {
    lock pegoubear
    lock pegoucinquenta
    pause 1
-   do relog 999999
+   do relog
 }
 
 
@@ -1224,21 +1041,35 @@ macro 3rogue3.22 {
    lock pegourocker
    lock pegoubear
    do move cmd_fild04 304 180
-   pause 2
+   pause 1
    do talk resp 2
-   pause 2
+   pause 1
    do talk resp 1
-   pause 2
+   pause 1
    do talk resp 1
-   pause 2
+   pause 1
    do talk resp 2
    pause 10
    do move 167 107
+   do conf attackAuto 2
+   do conf autoTalkCont 0
    pause 10
    do talk @npc(177 109)
-   pause 10
+   do talk cont
+   pause 1
+   do talk cont
+   pause 1
+   do talk cont
+   pause 1
+   do talk cont
+   pause 1
+   do talk cont
+   pause 1
+   do talk cont
+   pause 1
    do talk resp 0
    pause 5
+   do conf autoTalkCont 1
    do conf route_avoidWalls 0
    do conf route_randomWalk 0
    do conf attackAuto 0
@@ -1273,7 +1104,7 @@ macro 3rogue3.22 {
    pause 1
    do move 77 195
    pause 1
-   do move 129 195 
+   do move 129 195
    pause 1
    do move 226 195
    pause 1
@@ -1291,14 +1122,14 @@ macro 3rogue3.22 {
    pause 1
    do talk @npc(363 122)
    pause 5
-   do eq Gladius [3]
+   do eq 長柄短劍 [3]
    pause 3
    do relog 10
 }
 
 
 automacro 3rogue3.3 {
-   console /My father never hoarded upgrade items/
+   console /我爸爸並沒有把精鍊物品轉移到別處/
    timeout 60
    call rogue3.3
 }
@@ -1313,11 +1144,11 @@ macro rogue3.3 {
    lock pegoubear
    lock pegoucinquenta
    pause 2
-   do relog 9999999999
+   do relog
 }
 
 automacro 3rogue3.31 {
-   console /intrude my territory?/
+   console /是誰想要隨便進來?/
    location cmd_fild09 330 148 340 138
    timeout 60
    call 3rogue3.32
@@ -1337,10 +1168,25 @@ macro 3rogue3.32 {
    pause 2
    do talk resp 0
    pause 10
+   do conf autoTalkCont 0
+   pause 2
    do talk @npc(160 34)
-   pause 10
+   pause 2
+   do talk cont
+   pause 2
+   do talk cont
+   pause 2
+   do talk cont
+   pause 2
+   do talk cont
+   pause 2
+   do talk cont
+   pause 2
+   do talk cont
+   pause 2
    do talk resp 0
    pause 5
+   do conf autoTalkCont 1
    do conf route_avoidWalls 0
    do conf route_randomWalk 0
    do conf attackAuto 0
@@ -1375,7 +1221,7 @@ macro 3rogue3.32 {
    pause 1
    do move 77 195
    pause 1
-   do move 129 195 
+   do move 129 195
    pause 1
    do move 226 195
    pause 1
@@ -1393,7 +1239,7 @@ macro 3rogue3.32 {
    pause 1
    do talk @npc(363 122)
    pause 5
-   do eq Gladius [3]
+   do eq 長柄短劍 [3]
    pause 3
    do relog 10
 }
@@ -1401,7 +1247,7 @@ macro 3rogue3.32 {
 
 
 automacro pesou {
-   console /(excesso de peso)/
+   console /You are again: 負重 90%/
    timeout 20
    overrideAI 1
    exclusive 1
